@@ -14,7 +14,3 @@ def straight_flush(hand):
         if high_card:                                   # for 문 끝나고 straight_flush 조건이 완성되면 리턴
             return f'{high_card} straight_flush'
     return False
-
-hand = [[], ['d'], ['d'], ['d'], ['d'], ['d'], ['d'], [], [], [], [], [], ['h'], [], ['d']]
-
-print(straight_flush(hand))

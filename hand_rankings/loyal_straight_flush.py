@@ -7,7 +7,3 @@ def loyal_straight_flush(hand):
         pattern in hand[14]):
             return 'loyal_straight_flush'
     return False
-
-hand = [[], ['s'], [], [], [], [], [], [], [], ['s'], ['s'], ['s'], ['s', 'h'], ['s'], ['s']]
-
-print(loyal_straight_flush(hand))

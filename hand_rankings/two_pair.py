@@ -3,18 +3,18 @@
 def two_pair(cards):
     cnt = 0
     pair = [0, 0, 0]
+    check = []
     for i in range(14, 1, -1):
         if cnt >= 2:
             break
 
-        if len(cards[i]) >= 2:
+        if len(cards[i]) == 2:
             pair[cnt] = i
             cnt += 1
-            cards[i].pop()
-            cards[i].pop()
+            check.append(i)
 
     for i in range(14, 1, -1):
-        if len(cards[i]) >= 1:
+        if cards[i] and not i in check:
             pair[2] = i
             break
 

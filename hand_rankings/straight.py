@@ -13,7 +13,3 @@ def straight(hand):
     if high_card:
         return f'{high_card} straight'
     return False
-
-hand = [[], ['s'], ['d'], ['c'], ['h'], ['d'], ['h'], [], [], [], [], [], ['h'], [], ['s']]
-
-print(straight(hand))
