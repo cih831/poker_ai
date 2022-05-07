@@ -12,7 +12,7 @@ def get_card(cards):
         else:
             c[num] += 1
 
-c = [[]*14]
+c = [[]*15]
 
 
 
