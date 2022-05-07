@@ -4,7 +4,7 @@ def straight(hand):
             if not hand[j]:
                 break
         else:
-            return f'{hand[j+4]} straight'
+            return f'{j} straight'
     return False
 
 hand = [[], ['s'], ['d'], ['c'], ['h'], ['d'], [], [], [], [], ['d'], [], ['h'], [], ['s']]
