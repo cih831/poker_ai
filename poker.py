@@ -32,3 +32,6 @@ get_card(turn)
 river = [input()]
 print(river)
 get_card(river)
+from hand import hand_rankings
+
+hand_rankings.hand_rankings()
