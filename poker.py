@@ -1,6 +1,3 @@
-def hand_rankings():
-    rank = ['top', 'one_pair', 'two_pair', 'triple', 'straight', 'flush', 'full_house', 'straight_flush', 'loyal_straight_flush']
-
 def get_card(cards):
     global s, d, h, c
     for card in cards:
@@ -16,6 +13,9 @@ def get_card(cards):
             c[num] += 1
 
 c = [[]*14]
+
+
+
 
 hero_hands = list(map(str, input().split()))
 get_card(hero_hands)
@@ -33,7 +33,3 @@ get_card(turn)
 river = [input()]
 print(river)
 get_card(river)
-
-# 족보 함수
-# 게임 진행
-# ai
