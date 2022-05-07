@@ -16,7 +16,6 @@ c = [[]*14]
 
 
 
-
 hero_hands = list(map(str, input().split()))
 get_card(hero_hands)
 # print(s, d, h, c)
