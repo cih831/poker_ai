@@ -1,17 +1,15 @@
 # [four_card, kicker]
 def four_card(cards):
-    cnt = 0
-    pair = [0, 0]
+    quad = []
+    kicker = []
     for i in range(14, 1, -1):
         if len(cards[i]) == 4:
-            cnt += 1
-            pair[0] = i
-            break
-    for i in range(14, 1, -1):
-        if len(cards[i]) != 4:
-            pair[1] = i
-            break        
-    if cnt >= 1:
-        return pair
-    else:
-        return False
+            quad = [i, i, i, i]
+
+        elif cards[i] and not kicker:
+            kicker = [i]
+
+        if quad and kicker:
+            return [8, quad + kicker]
+
+    return False
