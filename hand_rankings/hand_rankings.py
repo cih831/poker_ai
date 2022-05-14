@@ -23,7 +23,6 @@ def rankings(hands):
         if len(top_5) == 5:
             return f'{top_5} top'
 
-print(rankings(input()))
 
 # # top
 # [[], ['s'], ['d'], [], ['h'], [], ['c'], [], ['d'], [], ['d'], [], ['h'], [], ['s']]
