@@ -18,7 +18,7 @@ def rankings(hands):
     top_5 = []
     for i in range(14, 1, -1):
         if hands[i]:
-            top_5.append(hands[i])
+            top_5.append(i)
         
         if len(top_5) == 5:
             return f'{top_5} top'
