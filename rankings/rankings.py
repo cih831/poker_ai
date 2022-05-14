@@ -14,14 +14,14 @@ def rankings(hands):
     for func in rank:
         value = func(hands)
         if value:
-            return f'{value} {func}'
-    top_5 = []
+            return value
+    best5 = []
     for i in range(14, 1, -1):
         if hands[i]:
-            top_5.append(i)
+            best5.append(i)
         
-        if len(top_5) == 5:
-            return f'{top_5} top'
+        if len(best5) == 5:
+            return [0, best5]
 
 
 # # top

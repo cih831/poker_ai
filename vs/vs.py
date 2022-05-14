@@ -1,18 +1,14 @@
+def vs(p1, p2):
+    print(type(p1))
+    if p1[0] > p2[0]:
+        return 'p1 win'
+    elif p1[0] < p2[0]:
+        return 'p2 win'
+    else:
+        for i in range(5):
+            if p1[1][i] > p2[1][i]:
+                return 'p1 win'
+            elif p1[1][i] < p2[1][i]:
+                return 'p2 win'
 
-
-
-
-# 같은 족보일경우
-# best 5를 받아서
-# for i in range(5):
-#     if hero_best5[i] > villain_best5[i]:
-#         return 'hero_win'
-#     elif hero_best5[i] < villain_best5[i]:
-#         return 'villain_win'
-# else:
-#     return 'chop'
-
-
-# A 9 9 7 5 3 2 
-
-# 9 9 A 7 5
+    return 'chop'

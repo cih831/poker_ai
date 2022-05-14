@@ -2,12 +2,14 @@ import sys
 sys.path.append('./rankings')
 from rankings.rankings import rankings
 from progress.progress import get_card
+from vs.vs import vs
 
 
 board = [[] for _ in range(15)]
 
-# 히어로 패와 보드를 분리
-# 족보 계산 할때 핸드를 더해서 계산
+# 베팅!
+
+# ai 구현으로 들어갈 듯?..
 
 
 hero_hands = list(map(str, input().split()))
@@ -28,5 +30,5 @@ hero_ranking = rankings(get_card(hero_hands, board))
 villain_hands = list(map(str, input().split()))
 villain_ranking = rankings(get_card(villain_hands, board))
 
-print(hero_ranking)
-print(villain_ranking)
+print(hero_ranking, villain_ranking)
+print(vs(hero_ranking, villain_ranking))
