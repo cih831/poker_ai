@@ -1,22 +1,15 @@
-
 def triple(cards):
-    best5 = [3, []]
+    tri = []
+    kicker = []
     for i in range(14, 1, -1):
         if len(cards[i]) == 3:
-            best5[1].append(i)
-            best5[1].append(i)
-            best5[1].append(i)
-            break
+            tri = [i, i, i]
 
-    temp = []
-    for i in range(14, 1, -1):
-        if len(temp) >= 2:
-            break
-        if len(cards[i]) == 1:
-            temp.append(i)  
-    best5[1] += temp
+        elif cards[i] and len(kicker) < 2:
+            kicker.append(i)
 
-    if len(best5[1]) == 5:
-        return best5
-    return False    
+        if len(tri + kicker) == 5:
+            return [3, tri + kicker]
+
+    return False
 

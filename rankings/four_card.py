@@ -1,4 +1,3 @@
-# [four_card, kicker]
 def four_card(cards):
     quad = []
     kicker = []
@@ -7,9 +6,9 @@ def four_card(cards):
             quad = [i, i, i, i]
 
         elif cards[i] and not kicker:
-            kicker = [i]
+            kicker.append(i)
 
-        if quad and kicker:
-            return [8, quad + kicker]
+        if len(quad + kicker) == 5:
+            return [7, quad + kicker]
 
     return False

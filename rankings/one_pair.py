@@ -1,20 +1,14 @@
-
 def one_pair(cards):
-    best5 = [1, []]
+    pair = []
+    kicker = []
     for i in range(14, 1, -1):
         if len(cards[i]) == 2:
-            best5[1].append(i)
-            best5[1].append(i)
-            break
+            pair = [i, i]
 
-    temp = []
-    for i in range(14, 1, -1):
-        if len(temp) == 3:
-            break
-        if len(cards[i]) == 1:
-            temp.append(i)
-    best5[1] += temp
+        elif cards[i] and len(kicker) < 3:
+            kicker.append(i)
 
-    if len(best5[1]) == 5:
-        return best5
+        if len(pair + kicker) == 5:
+            return [1, pair + kicker]
+    
     return False
