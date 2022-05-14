@@ -1,22 +1,32 @@
 import sys
-sys.path.append('./hand_rankings')
-from hand_rankings.hand_rankings import rankings
+sys.path.append('./rankings')
+from rankings.rankings import rankings
 from progress.progress import get_card
 
 
-hands = [[] for _ in range(15)]
+board = [[] for _ in range(15)]
+
+# 히어로 패와 보드를 분리
+# 족보 계산 할때 핸드를 더해서 계산
 
 
 hero_hands = list(map(str, input().split()))
-get_card(hero_hands, hands)
 
 flop = list(map(str, input().split()))
-get_card(flop, hands)
+board = get_card(flop, board)
+hero_ranking = rankings(get_card(hero_hands, board))
 
 turn = [input()]
-get_card(turn, hands)
+board = get_card(turn, board)
+hero_ranking = rankings(get_card(hero_hands, board))
+
 
 river = [input()]
-get_card(river, hands)
+board = get_card(river, board)
+hero_ranking = rankings(get_card(hero_hands, board))
 
-print(rankings(hands))
+villain_hands = list(map(str, input().split()))
+villain_ranking = rankings(get_card(villain_hands, board))
+
+print(hero_ranking)
+print(villain_ranking)
