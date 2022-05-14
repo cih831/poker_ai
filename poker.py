@@ -1,34 +1,19 @@
-def get_card(cards):
-    global s, d, h, c
-    for card in cards:
-        num, sym = map(str, card)
-        num = int(num)
-        if sym == 's':
-            s[num] += 1
-        elif sym == 'd':
-            d[num] += 1
-        elif sym == 'h':
-            h[num] += 1
-        else:
-            c[num] += 1
+from .progress.progress import get_card
+from .hand_rankings.hand_rankings import rankings
 
-c = [[]*15]
-
+hands = [[] for _ in range(15)]
 
 
 hero_hands = list(map(str, input().split()))
-get_card(hero_hands)
-# print(s, d, h, c)
+get_card(hero_hands, hands)
 
 flop = list(map(str, input().split()))
-get_card(flop)
-# print(s, d, h, c)
+get_card(flop, hands)
 
 turn = [input()]
-print(turn)
-get_card(turn)
-# print(s, d, h, c)
+get_card(turn, hands)
 
 river = [input()]
-print(river)
-get_card(river)
+get_card(river, hands)
+
+print(rankings(hands))

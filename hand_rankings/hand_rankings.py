@@ -8,7 +8,7 @@ from four_card import four_card
 from straight_flush import straight_flush
 from loyal_straight_flush import loyal_straight_flush
 
-def hand_rankings(hand):
+def rankings(hand):
     rank = [loyal_straight_flush, straight_flush, four_card, full_house, flush, straight, triple, two_pair, one_pair]
      
     for func in rank:
@@ -23,10 +23,6 @@ def hand_rankings(hand):
         if len(top_5) == 5:
             return f'{top_5} top'
 
-
-hand = [[], ['h'], [], [], [], [], ['d', 's'], [], [], [], ['h'], ['h'], [], ['h'], ['h']]
-
-print(hand_rankings(hand))
 
 # # top
 # [[], ['s'], ['d'], [], ['h'], [], ['c'], [], ['d'], [], ['d'], [], ['h'], [], ['s']]
