@@ -8,21 +8,22 @@ from four_card import four_card
 from straight_flush import straight_flush
 from loyal_straight_flush import loyal_straight_flush
 
-def rankings(hand):
+def rankings(hands):
     rank = [loyal_straight_flush, straight_flush, four_card, full_house, flush, straight, triple, two_pair, one_pair]
      
     for func in rank:
-        value = func(hand)
+        value = func(hands)
         if value:
             return f'{value} {func}'
     top_5 = []
     for i in range(14, 1, -1):
-        if hand[i]:
-            top_5.append(hand[i])
+        if hands[i]:
+            top_5.append(hands[i])
         
         if len(top_5) == 5:
             return f'{top_5} top'
 
+print(rankings(input()))
 
 # # top
 # [[], ['s'], ['d'], [], ['h'], [], ['c'], [], ['d'], [], ['d'], [], ['h'], [], ['s']]

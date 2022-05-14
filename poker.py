@@ -1,5 +1,8 @@
-from .progress.progress import get_card
-from .hand_rankings.hand_rankings import rankings
+import sys
+sys.path.append('./hand_rankings')
+from hand_rankings.hand_rankings import rankings
+from progress.progress import get_card
+
 
 hands = [[] for _ in range(15)]
 
