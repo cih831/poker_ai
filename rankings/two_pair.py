@@ -1,24 +1,17 @@
-# 높은 순으로
-# [pair, pair, kicker]
 def two_pair(cards):
-    cnt = 0
-    pair = [0, 0, 0]
-    check = []
-    for i in range(14, 1, -1):
-        if cnt >= 2:
-            break
-
-        if len(cards[i]) == 2:
-            pair[cnt] = i
-            cnt += 1
-            check.append(i)
+    best5 = [2, []]
 
     for i in range(14, 1, -1):
-        if cards[i] and not i in check:
-            pair[2] = i
+        if len(best5[1]) >= 4:
             break
-
-    if cnt >= 2:
-        return pair
-    else:
-        return False
+        if len(cards[i]) >= 2:
+            best5[1].append(i)
+            best5[1].append(i)
+            
+    if len(best5[1]) >= 4:
+        for i in range(14, 1, -1):
+            if len(cards[i]) == 1:
+                best5[1].append(i)
+                break
+        return best5
+    return False
