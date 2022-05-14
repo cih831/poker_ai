@@ -31,8 +31,31 @@
 #### 주요 목표
 
 + Poker Helper 만들기
-+ 내가 패가 강한지 약한지 판별하는 알고리즘 구현
 
 #### Poker Helper 구현
 
-hand와 board를 입력하면 족보를 찾아주는 프로그램
+hero와 villain의 hands가 공개 되었을 때, 승패 여부를 판정할 수 있게 됨.
+
+#### rankings 보수 작업
+
+승패를 확인하기 위해, 각 족보에 대한 return의 양식을 통일시킴.
+
+=> 승패 판단이 가능해짐.
+
+#### 상대경로 import 문제
+
+```bash
+ImportError: attempted relative import with no known parent package
+```
+
+상대 경로로 ranking의 모듈을 import 하는 과정에서 부모 패키지를 찾을수 없다는 에러가 발생하여 환경 변수에 상대경로로 경로를 지정해줘서 해결함.
+
+
+
+### 3주차
+
+#### 주요 목표
+
++ betting 구현
++ bank roll 관리
++ betting까지 가능한 온전한 포커 게임기 완성!
