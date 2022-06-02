@@ -1,38 +1,87 @@
-# 내가 레이즈 = > 상대 레이즈 = > 나 레이즈 => 상대 레이즈
+def bet(player_lst, player_pot, player_state, player_balance, game, pre_flop=0):
+    alive = 0
+    for state in player_state:
+        if state != 'fold':
+            alive += 1
 
-# 내가 죽거나, 상대가 죽거나, pot에 얼마 추가되었는지
-# if hero fold => return villain win
-# elif villain fold => return hero win
-# elif check check => return (raise amount(==0))
-# elif raise call => return (raise amount)
-
-# 리스트가 idx가 key이고 value인 딕셔너리랑 비슷한 구조니까
-
-# player_lst == [hero, villain1, villain2, villain3]
-# player_pot == [0, 0, 0, 0]
-def bet(player_lst, player_pot):
     while True:
         for pn in range(len(player_lst)):
+            if (pre_flop):
+                pn += 2
+            pn = (pn + game) % len(player_lst)
+
+            if player_state[pn] == 'fold':
+                continue
+
+            # check == 0, raise == 2.5(BB), call == -1, fold == -2
             if player_lst[pn] != 'hero':
-                action = 0
+                action = int(input())
             else:
                 action = int(input())
-            if action == -2:
-                player_pot[pn] *= -1
-            elif action == -1:
-                player_pot[pn] = max(player_pot)
-            else:
-                player_pot[pn] += action
 
-            # 베팅 종료 확인
-            for pp in player_pot:
-                if pp >= 0:
-                    tmp = pp
-                    break
-            for pp in player_pot:
-                if pp >= 0 and pp != tmp:
+            if action == -2:
+                player_state[pn] = 'fold'
+                alive -= 1
+            elif action == -1:
+                player_balance[pn] -= (max(player_pot) - player_pot[pn])
+                player_pot[pn] = max(player_pot)
+                player_state[pn] = 'call'
+            elif action == 0:
+                player_state[pn] = 'check'
+            else:
+                # 받고!
+                player_balance[pn] -= (max(player_pot) - player_pot[pn])
+                player_pot[pn] = max(player_pot)
+                # 1억 더!
+                player_balance[pn] -= action
+                player_pot[pn] += action
+                player_state[pn] = 'raise'
+                for player_idx in range(len(player_state)):
+                    if pn == player_idx:
+                        continue
+                    elif player_state[player_idx] == 'fold':
+                        continue
+                    else:
+                        player_state[player_idx] = ''
+
+            print(player_state)
+            print(player_balance)
+
+            if alive == 1:
+                for pn in range(len(player_lst)):
+                    if player_state[pn] != 'fold':
+                        player_balance[pn] += sum(player_pot)
+                return
+            
+
+        # 베팅 종료 확인
+            for state in player_state:
+                if not state:
                     break
             else:
-                return player_pot
+                return
                 
-            # check == 0, raise == 2.5(BB), call == -1, fold == -2
+
+
+###########################################################
+# player_lst = ['hero', 'cat', 'dog', 'apple', 'banana']
+# player_pot = [2, 2, 2, 2, 2]
+# player_state = ['', '', '', '', '']
+
+# bet(player_lst, player_pot, player_state)
+# print()
+# print()
+# print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+# print(player_lst)
+# print(player_pot)
+# print(player_state)
+# print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+# print()
+# print()
+
+# bet(player_lst, player_pot, player_state)
+# print(player_lst, player_pot, player_state)
+
+# print(bet(player_lst, player_pot))
+# print(player_lst, player_pot)
+###########################################################
