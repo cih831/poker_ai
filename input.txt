@@ -1,0 +1,26 @@
+blind 200
+player_balance 20000 40000(100BB, 200BB)
+hero_hands
+flop
+turn
+river
+villain_hands
+
+200
+20000 40000
+5s 6d
+0
+0
+7h 8d 9c
+10
+-1
+5d
+20
+-1
+Ad
+25
+30
+-1
+2d 4d
+# 족보는 스트레이트(4) vs 플러쉬(5)
+# villain이 플러쉬로 승리했고, 잔고는 15, 285

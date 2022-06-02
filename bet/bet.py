@@ -15,9 +15,9 @@ def bet(player_lst, player_pot, player_state, player_balance, game, pre_flop=0):
 
             # check == 0, raise == 2.5(BB), call == -1, fold == -2
             if player_lst[pn] != 'hero':
-                action = int(input())
+                action = int(input(f'{player_lst[pn]} action: '))
             else:
-                action = int(input())
+                action = int(input(f'{player_lst[pn]} action: '))
 
             if action == -2:
                 player_state[pn] = 'fold'

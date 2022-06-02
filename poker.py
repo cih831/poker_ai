@@ -5,8 +5,8 @@ from progress.progress import get_card
 from vs.vs import vs
 from bet.bet import bet
 
-blind = int(input())
-player_balance = list(map(lambda x: (int(x)/blind), input().split()))
+blind = int(input('blind: ' ))
+player_balance = list(map(lambda x: (int(x)/blind), input('balance: ').split()))
 player_lst = ['hero', 'villain']
 game = -1
 
@@ -17,7 +17,7 @@ while True:
     player_state = ['', '']
 
 
-    hero_hands = list(map(str, input().split()))
+    hero_hands = list(map(str, input('hero_hands: ').split()))
     if hero_hands == ['-1', '-1']:
         break
 
@@ -27,7 +27,7 @@ while True:
     # print(player_state)
     # print(player_pot)
 
-    flop = list(map(str, input().split()))
+    flop = list(map(str, input('flop: ').split()))
     board = get_card(flop, board)
     hero_ranking = rankings(get_card(hero_hands, board)) # 이거 나중에 bet 인자로 ai 판단 근거로 줘야됨
     if bet(player_lst, player_pot, player_state, player_balance, game):
@@ -35,14 +35,14 @@ while True:
 
 
 
-    turn = [input()]
+    turn = [input('turn: ')]
     board = get_card(turn, board)
     hero_ranking = rankings(get_card(hero_hands, board))
     if bet(player_lst, player_pot, player_state, player_balance, game):
         continue
 
 
-    river = [input()]
+    river = [input('river: ')]
     board = get_card(river, board)
     hero_ranking = rankings(get_card(hero_hands, board))
     if bet(player_lst, player_pot, player_state, player_balance, game):
@@ -55,7 +55,7 @@ while True:
         if player_state[pn] == 'fold':
             player_state[pn] = [-1, []]
             continue
-        villain_hands = list(map(str, input().split()))
+        villain_hands = list(map(str, input('villain_hands: ').split()))
         player_state[pn] = rankings(get_card(villain_hands, board))
     
     print(player_state)
